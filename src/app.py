@@ -32,8 +32,22 @@ tasks_schema = TaskSchema (many=True)
 @app.route('/tasks' , methods=['POST'])
 def create_task():
 
+    title= request.json['title']
+    description= request.json['description']
+
+    new_task = Task(title,description)
+    db.session.add(new_task)
+    db.session.commit()
+
+    return task_schema.jsonify(new_task)
+
+@app.route('/tasks' , methods=['GET'])
+def get_task():
+
     print(request.json)
-    return 'received'
+    return 'get from the server'
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True)

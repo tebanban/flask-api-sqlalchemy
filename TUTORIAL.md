@@ -20,12 +20,12 @@
 
 # 8 Create src folder and app.py file
 
-# 9 Import flask, sqlalchemy
+# 9 Import flask, and sqlalchemy
 
 # 10 Create an instance of Flask 
 app = Flask(__name__)
 
-# 11 Config an MySql connection
+# 11 Config a MySql connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/flaskmysql'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

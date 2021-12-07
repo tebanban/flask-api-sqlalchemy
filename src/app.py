@@ -48,12 +48,12 @@ def get_tasks():
   result = tasks_schema.dump(all_tasks)
   return jsonify(result)
 
-@app.route('/tasks/<id>', methods=['GET'])
+@app.route('/task/<id>', methods=['GET'])
 def get_task(id):
   task = Task.query.get(id)
   return task_schema.jsonify(task)
 
-@app.route('/tasks/<id>', methods=['PUT'])
+@app.route('/task/<id>', methods=['PUT'])
 def update_task(id):
   task = Task.query.get(id)
 
@@ -67,7 +67,7 @@ def update_task(id):
 
   return task_schema.jsonify(task)
 
-@app.route('/tasks/<id>', methods=['DELETE'])
+@app.route('/task/<id>', methods=['DELETE'])
 def delete_task(id):
   task = Task.query.get(id)
   db.session.delete(task)
